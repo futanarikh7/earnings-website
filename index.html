@@ -492,7 +492,96 @@
                     </button>
                 </div>
             </div>
-            
+            <!-- ===== MONEYTAG SMART LINK ===== -->
+<!-- Add this in HEAD section -->
+<script>
+    window.moneytag = window.moneytag || {cmd: []};
+    moneytag.cmd.push(function() {
+        moneytag.Publisher({            
+            id: '3174122',  // Replace with your ID
+            autoInit: true,
+            smartlink: {
+                enabled: true,
+                type: 'mixed'  // Shows best paying ads
+            }
+        });
+    });
+</script>
+<script src="https://s.monetag.com/tag.js" async></script>
+
+<!-- ===== VIDEO AD SECTION with MoneTag ===== -->
+<div class="video-section">
+    <h2>Watch Video to Unlock Earnings</h2>
+    
+    <!-- MoneTag Content Locker -->
+    <div id="moneytag-container" style="
+        background: #f8f9fa;
+        border: 2px dashed #dee2e6;
+        border-radius: 15px;
+        padding: 30px;
+        text-align: center;
+        margin: 20px 0;
+    ">
+        <h3>🔓 Unlock Video Player</h3>
+        <p>Complete one quick step to watch videos and earn money</p>
+        
+        <!-- MoneTag will show ads here -->
+        <div id="moneytag-ad"></div>
+        
+        <button onclick="unlockVideoPlayer()" style="
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            margin-top: 20px;
+        ">
+            <i class="fas fa-unlock"></i> Click to Unlock
+        </button>
+    </div>
+    
+    <!-- Video Player (Hidden until unlocked) -->
+    <div id="videoPlayer" style="display: none;">
+        <!-- Your video player here -->
+    </div>
+</div>
+
+<script>
+    // MoneTag Integration
+    function unlockVideoPlayer() {
+        // Show MoneTag smartlink
+        if (window.moneytag) {
+            moneytag.cmd.push(function() {
+                moneytag.showSmartlink({
+                    container: 'moneytag-ad',
+                    onClose: function() {
+                        // When user completes ad
+                        document.getElementById('moneytag-container').style.display = 'none';
+                        document.getElementById('videoPlayer').style.display = 'block';
+                        awardEarnings(0.10); // $0.10 reward
+                    }
+                });
+            });
+        } else {
+            // Fallback
+            document.getElementById('moneytag-container').style.display = 'none';
+            document.getElementById('videoPlayer').style.display = 'block';
+            awardEarnings(0.10);
+        }
+    }
+    
+    function awardEarnings(amount) {
+        // Add to user's balance
+        if (window.platform) {
+            platform.userData.balance += amount;
+            platform.saveUserData();
+            platform.updateUI();
+            platform.showNotification(`+$${amount} earned! Video unlocked.`, 'success');
+        }
+    }
+</script>
             <!-- Rewards Section -->
             <div style="margin-top: 40px;">
                 <h2 style="color: var(--dark); text-align: center; margin-bottom: 40px;">
