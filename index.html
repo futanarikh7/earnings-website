@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Earn Rewards - Video Ad Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <i class="fas fa-coins"></i>
+                <span>EarnRewards</span>
+            </div>
+            <div class="user-info">
+                <div class="balance">
+                    <i class="fas fa-wallet"></i>
+                    <span id="balance">0</span> coins
+                </div>
+                <div class="user">
+                    <i class="fas fa-user"></i>
+                    <span id="username">User123</span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Earn Coins Watching Videos</h1>
+                <p>Watch short video ads and earn coins that you can redeem for rewards!</p>
+                <div class="stats">
+                    <div class="stat">
+                        <i class="fas fa-users"></i>
+                        <span>10,000+ Earners</span>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-coins"></i>
+                        <span>1M+ Coins Earned</span>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-gift"></i>
+                        <span>50+ Rewards</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video Ad Section -->
+        <section class="video-section">
+            <h2>Watch & Earn</h2>
+            <p>Watch a video ad to earn coins. Each video gives you 10 coins.</p>
+            
+            <div class="video-container">
+                <div class="video-placeholder" id="videoPlaceholder">
+                    <i class="fas fa-play-circle"></i>
+                    <p>Click "Watch Video" to start earning</p>
+                </div>
+                
+                <div class="video-controls">
+                    <div class="timer" id="timer">
+                        <i class="fas fa-clock"></i>
+                        <span id="countdown">30</span> seconds remaining
+                    </div>
+                    <button id="watchBtn" class="watch-btn">
+                        <i class="fas fa-play"></i> Watch Video & Earn 10 Coins
+                    </button>
+                    <div class="earn-info">
+                        <p><i class="fas fa-info-circle"></i> You need to watch the full video to earn coins</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Rewards Section -->
+        <section class="rewards-section">
+            <h2>Redeem Your Coins</h2>
+            <p>Exchange your earned coins for amazing rewards</p>
+            
+            <div class="rewards-grid">
+                <div class="reward-card">
+                    <div class="reward-icon amazon">
+                        <i class="fab fa-amazon"></i>
+                    </div>
+                    <h3>$5 Amazon Gift Card</h3>
+                    <p>500 coins</p>
+                    <button class="redeem-btn" data-cost="500">Redeem Now</button>
+                </div>
+                
+                <div class="reward-card">
+                    <div class="reward-icon paypal">
+                        <i class="fab fa-paypal"></i>
+                    </div>
+                    <h3>$10 PayPal Credit</h3>
+                    <p>1000 coins</p>
+                    <button class="redeem-btn" data-cost="1000">Redeem Now</button>
+                </div>
+                
+                <div class="reward-card">
+                    <div class="reward-icon coffee">
+                        <i class="fas fa-coffee"></i>
+                    </div>
+                    <h3>Starbucks Gift Card</h3>
+                    <p>750 coins</p>
+                    <button class="redeem-btn" data-cost="750">Redeem Now</button>
+                </div>
+                
+                <div class="reward-card">
+                    <div class="reward-icon game">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h3>Steam Gift Card</h3>
+                    <p>1200 coins</p>
+                    <button class="redeem-btn" data-cost="1200">Redeem Now</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats-section">
+            <h2>Your Earning Stats</h2>
+            <div class="stats-cards">
+                <div class="stat-card">
+                    <h3 id="totalVideos">0</h3>
+                    <p>Videos Watched</p>
+                </div>
+                <div class="stat-card">
+                    <h3 id="totalEarned">0</h3>
+                    <p>Coins Earned</p>
+                </div>
+                <div class="stat-card">
+                    <h3 id="todayEarned">0</h3>
+                    <p>Coins Today</p>
+                </div>
+                <div class="stat-card">
+                    <h3 id="availableCoins">0</h3>
+                    <p>Available Coins</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>EarnRewards</h3>
+                <p>Watch videos, earn coins, get rewards!</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">How it Works</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 EarnRewards. All rights reserved. | This is a demo site</p>
+            <p class="disclaimer">Note: This is a demonstration website. No real rewards or payments are being made.</p>
+        </div>
+    </footer>
+
+    <!-- Modal for Video Completion -->
+    <div id="completionModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <i class="fas fa-trophy success-icon"></i>
+                <h2>Congratulations!</h2>
+                <p>You've earned <span class="coins-earned">10</span> coins!</p>
+                <p>Your new balance: <span id="newBalance">0</span> coins</p>
+                <button id="continueBtn" class="continue-btn">Continue Earning</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Redemption -->
+    <div id="redeemModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <i class="fas fa-gift gift-icon"></i>
+                <h2 id="redeemTitle">Redeem Reward</h2>
+                <p id="redeemMessage">You're about to redeem a reward for <span id="redeemCost">0</span> coins.</p>
+                <p>Your current balance: <span id="currentBalance">0</span> coins</p>
+                <div class="redeem-actions">
+                    <button id="confirmRedeem" class="confirm-btn">Confirm Redemption</button>
+                    <button id="cancelRedeem" class="cancel-btn">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
