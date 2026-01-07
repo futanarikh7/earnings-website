@@ -43,3 +43,10 @@ if(Date.now() - user.lastDaily > 86400000){
 if(referrer && referrer !== user_id){
   users[referrer].balance += 1000;
 }
+bot.sendMessage(chatId,"Open Tap App",{
+  reply_markup:{
+    inline_keyboard:[
+      [{text:"🚀 Open App", web_app:{url:"https://yourdomain.com"}}]
+    ]
+  }
+});
