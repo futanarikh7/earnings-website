@@ -1,55 +1,69 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>TapSwap Mini App</title>
-  <script src="https://telegram.org/js/telegram-web-app.js"></script>
-  <style>
-    body {
-      background:#0f172a;
-      color:white;
-      font-family:sans-serif;
-      text-align:center;
-    }
-    .tap-btn {
-      width:200px;
-      height:200px;
-      border-radius:50%;
-      background:linear-gradient(135deg,#22c55e,#16a34a);
-      font-size:30px;
-      border:none;
-      color:white;
-      margin-top:50px;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>TapEarn</title>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+<style>
+body{
+  background:#0f172a;
+  color:white;
+  text-align:center;
+  font-family:sans-serif;
+}
+.tap{
+  width:220px;
+  height:220px;
+  border-radius:50%;
+  font-size:28px;
+  background:linear-gradient(135deg,#22c55e,#16a34a);
+  border:none;
+  color:white;
+  margin-top:30px;
+}
+</style>
 </head>
+
 <body>
 
 <h2 id="user">Loading...</h2>
 <h1 id="balance">0</h1>
+<h4 id="energy">Energy: 0</h4>
 
-<button class="tap-btn" onclick="tap()">TAP</button>
+<button class="tap" onclick="tap()">TAP</button>
 
 <script>
-const tg = window.Telegram.WebApp;
+const tg = Telegram.WebApp;
 tg.expand();
 
 const user = tg.initDataUnsafe.user;
-document.getElementById("user").innerText =
-  user.first_name + " #" + user.id;
+const uid = user.id;
 
-let balance = 0;
+document.getElementById("user").innerText =
+  user.first_name + " #" + uid;
+
+const API = "https://your-backend.com";
+
+async function load(){
+  const r = await fetch(API+"/state/"+uid);
+  const d = await r.json();
+  balance.innerText = d.balance;
+  energy.innerText = "Energy: "+d.energy;
+}
 
 async function tap(){
-  const res = await fetch("https://yourdomain.com/api/tap",{
+  const r = await fetch(API+"/tap",{
     method:"POST",
     headers:{"Content-Type":"application/json"},
-    body:JSON.stringify({ user_id:user.id })
+    body:JSON.stringify({uid})
   });
-  const data = await res.json();
-  balance = data.balance;
-  document.getElementById("balance").innerText = balance;
+  const d = await r.json();
+  balance.innerText = d.balance;
+  energy.innerText = "Energy: "+d.energy;
 }
+
+load();
 </script>
 
 </body>
